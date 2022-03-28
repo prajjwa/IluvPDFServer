@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I❤️PDF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="brand"> I❤️PDF</div>
+        <div class="options">
+            <div class="tasks merge">MERGE PDF</div>
+            <div class="tasks split">SPLIT PDF</div>
+            <div class="tasks compress">COMPRESS PDF</div>
+        </div>
+
+        <div class="auth">
+            <div class="login">Login</div>
+            <div class="register">SignUp</div>
+        </div>
+    </header>
+
+    <div class="area">
+        <h1>
+            <%=operation%> PDF files
+        </h1>
+        <p id="para">
+            <%=info%>
+        </p>
+
+        <form class="form" action="/uploads" method="POST" enctype="multipart/form-data">
+            <br>
+            <div class="flexer">
+                <input type="file" name="avatar" multiple>
+                <button id="upload-button" type="submit">submit</button>
+                <!-- <a href="http://localhost:3000/download" id="upload-button">Submit</a> -->
+            </div>
+
+        </form>
+
+        <!-- <button id="red-button">Download</button> -->
+        <%if(operation==='CONVERT'){%>
+            <a id="red-button" href="http://localhost:3000/convert/processing">Download</a>
+            <%}%>
+                <%if(operation==='EXTRACT' ){%>
+                    <a id="red-button" href="http://localhost:3000/convert/extract">Download</a>
+                    <%}%>
+
+
+
+    </div>
+
+    <div class="endtwo">
+        <hr />
+        <br />
+        <p>© Prajjwal Singh-PDF Boy</p>
+    </div>
+
+    <script>
+
+        // const butt = document.querySelector('#red-button');
+        // const frm = document.querySelector('.form');
+
+        // butt.addEventListener('click', (e) => {
+        //     // e.preventDefault();
+        //     frm.submit();
+        // })
+
+
+        const merge = document.querySelector('.merge');
+
+        merge.addEventListener('click', () => {
+            window.location.replace("http://localhost:3000/merge");
+
+        })
+
+        const split = document.querySelector('.split');
+
+        split.addEventListener('click', () => {
+            window.location.replace("http://localhost:3000/split");
+
+        })
+
+        const compress = document.querySelector('.compress');
+
+        compress.addEventListener('click', () => {
+            window.location.replace("http://localhost:3000/compress");
+
+        })
+
+        const brand = document.querySelector('.brand');
+
+        brand.addEventListener('click', () => {
+            window.location.replace("http://localhost:3000/");
+
+        })
+
+    </script>
+
+</body>
+
+</html>
